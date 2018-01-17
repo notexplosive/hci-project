@@ -21,6 +21,7 @@ class HeroWanderBehavior extends Sup.Behavior {
         this.direction = displacement.normalize();
         
         if(displacement.length() < 1){
+          
           this.pointsOfInterest.slice(index);
           this.direction = new Sup.Math.Vector2(0,0);
         }

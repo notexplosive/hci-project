@@ -9,8 +9,13 @@ class GameBehavior extends Sup.Behavior {
   
   update() {
     let mp = getRealMousePosition();
+    let tp = Sup.Input.getTouchPosition(0);
     
-    if(Sup.Input.wasMouseButtonJustPressed(0)){
+    if(Sup.Input.wasMouseButtonJustPressed(0) || Sup.Input.wasTouchStarted(0)){
+      if(!Sup.Input.wasMouseButtonJustPressed(0)){
+        mp = tp;
+      }
+      
       let item = new Sup.Actor("Item");
       item.setPosition(mp.x,mp.y);
       item.setEulerZ(Math.random() * Math.PI * 2);
