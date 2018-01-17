@@ -1,0 +1,37 @@
+{
+  "behaviors": {
+    "GameBehavior": {
+      "scriptId": "2",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "HeroClothingBehavior": {
+      "scriptId": "3",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "HeroWanderBehavior": {
+      "scriptId": "4",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "EquipmentBehavior": {
+      "scriptId": "5",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "slot",
+          "type": "string"
+        },
+        {
+          "name": "index",
+          "type": "number"
+        }
+      ]
+    }
+  }
+}
