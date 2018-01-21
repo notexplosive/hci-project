@@ -1,5 +1,6 @@
 class DungeonFloorBehavior extends Sup.Behavior {
   awake() {
+    CURRENT_DUNGEON_ACTOR = this.actor;
     let map = this.actor.tileMapRenderer.getTileMap()
     for(let y = 0; y < map.getHeight(); y++){
       for(let x = 0; x < map.getWidth(); x++){

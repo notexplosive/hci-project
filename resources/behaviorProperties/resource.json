@@ -35,7 +35,7 @@
     },
     "DungeonHeroBehavior": {
       "scriptId": "13",
-      "line": 0,
+      "line": 2,
       "parentBehavior": null,
       "properties": []
     },

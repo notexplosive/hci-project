@@ -1,3 +1,6 @@
+// Global Variables
+let CURRENT_DUNGEON_ACTOR:Sup.Actor;
+
 // This function returns the mouse position as it is presented on screen.
 // 
 // The built-in getMousePosition returns an x,y such that x=0,y=0 is the
