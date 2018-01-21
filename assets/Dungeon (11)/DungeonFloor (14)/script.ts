@@ -1,28 +1,29 @@
 class DungeonFloorBehavior extends Sup.Behavior {
   awake() {
     CURRENT_DUNGEON_ACTOR = this.actor;
+    CURRENT_DUNGEON_FLOORMAP = [];
     let map = this.actor.tileMapRenderer.getTileMap()
     for(let y = 0; y < map.getHeight(); y++){
+      let row = [];
+      CURRENT_DUNGEON_FLOORMAP.push(row);
       for(let x = 0; x < map.getWidth(); x++){
         let tile = map.getTileAt(0,x,y);
+        row.push()
         if(tile !== -1){
-          let tileActor = new Sup.Actor("mapTile"+x+","+y,this.actor);
-          tileActor.setLocalPosition(Math.random() * 50 - 25,Math.random() * 50 - 25,.1)
-          //tileActor.setLocalPosition(x/2,y/2);
-          //tileActor.moveLocal(1/4,1/4);
-          
-          let tileSpriteRenderer = new Sup.SpriteRenderer(tileActor,"Graphics/Tiles");
-          tileSpriteRenderer.setAnimation("All");
-          tileSpriteRenderer.setAnimationFrameTime(tile);
-          tileSpriteRenderer.pauseAnimation();
-          
-          // TODO:
-          // Ideally next time a map is generated we can just refresh these objects
-          this.tileObjects.push({actor:tileActor,x:x/2+1/4,y:y/2+1/4})
+          if(tile === 0){
+            this.createTileObject(tile,x,y+1)
+            tile = 16;
+          }
+          if(tile === 1){
+            CURRENT_DUNGEON_FLOORMAP[y][x] = true
+          }
+          this.createTileObject(tile,x,y)
         }
       }
     }
     this.actor.tileMapRenderer.destroy();
+    
+    Sup.log(CURRENT_DUNGEON_FLOORMAP);
   }
 
   update() {
@@ -45,6 +46,21 @@ class DungeonFloorBehavior extends Sup.Behavior {
         act.spriteRenderer.setOpacity(1);
       }
     }
+  }
+  
+  createTileObject(tile,x,y){
+    let tileActor = new Sup.Actor("mapTile"+x+","+y,this.actor);
+    tileActor.setLocalPosition(Math.random() * 100 - 50,Math.random() * 100 - 50,.1)
+
+    let tileSpriteRenderer = new Sup.SpriteRenderer(tileActor,"Graphics/Tiles");
+    tileSpriteRenderer.setAnimation("All");
+    tileSpriteRenderer.setAnimationFrameTime(tile);
+    tileSpriteRenderer.pauseAnimation();
+    
+    // TODO:
+    // Ideally next time a map is generated we can just refresh these objects
+    this.tileObjects.push({actor:tileActor,x:x/2+1/4,y:y/2+1/4})
+    return tileActor;
   }
   
   private tileObjects:{actor:Sup.Actor,x:number,y:number}[] = []

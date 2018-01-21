@@ -1,5 +1,6 @@
 // Global Variables
 let CURRENT_DUNGEON_ACTOR:Sup.Actor;
+let CURRENT_DUNGEON_FLOORMAP:boolean[][];
 
 // This function returns the mouse position as it is presented on screen.
 // 

@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 18,
+  "nextEntryId": 20,
   "nodes": [
     {
       "id": "9",
@@ -17,6 +17,11 @@
           "type": "sprite"
         },
         {
+          "id": "18",
+          "name": "Hero",
+          "type": "sprite"
+        },
+        {
           "id": "15",
           "name": "MapCreatorTiles",
           "type": "tileSet"
@@ -31,6 +36,11 @@
         {
           "id": "17",
           "name": "Map1",
+          "type": "tileMap"
+        },
+        {
+          "id": "19",
+          "name": "Map2",
           "type": "tileMap"
         }
       ]

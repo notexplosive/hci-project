@@ -47,11 +47,29 @@
             "propertyValues": {}
           },
           "id": "0"
+        },
+        {
+          "type": "SpriteRenderer",
+          "config": {
+            "formatVersion": 1,
+            "spriteAssetId": "18",
+            "animationId": null,
+            "horizontalFlip": false,
+            "verticalFlip": false,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "ffffff",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "2"
         }
       ],
       "position": {
-        "x": 0,
-        "y": 0,
+        "x": 1.703547716140747,
+        "y": 1.1556023359298706,
         "z": 2
       },
       "orientation": {
