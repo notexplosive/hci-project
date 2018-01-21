@@ -32,3 +32,34 @@ function randomElementFrom(a:any[]){
   let index = Math.floor(Math.random()*a.length);
   return [a[index],index];
 }
+
+// Creates a set of tiles as sprites based on an array and acting parent.
+function createTilePatch(parent:Sup.Actor,rows:number[][]){
+  let x = -1;
+  let y = -1;
+  let tileActors:Sup.Actor[] = []
+  
+  for(let row of rows){
+    y++;
+    x=0;
+    if(!row){ continue }
+    for(let tileIndex of row){
+      x++;
+      if(!tileIndex){ continue }
+      let tileActor = new Sup.Actor(parent.getName() + "tile" + x + "," + y,parent);
+      let renderer = new Sup.SpriteRenderer(tileActor);
+      renderer.setSprite("Graphics/Tiles");
+      renderer.setAnimation("All");
+      renderer.setAnimationFrameTime(tileIndex);
+      renderer.pauseAnimation();
+      
+      tileActor.setLocalPosition(x/2,-y/2);
+      tileActors.push(tileActor);
+    }
+  }
+  
+  for(let actor of tileActors){
+    actor.moveX(-x/4 -x/8)
+    actor.moveY(y/4)
+  }
+}

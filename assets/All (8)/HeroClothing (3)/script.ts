@@ -6,7 +6,7 @@ class HeroClothingBehavior extends Sup.Behavior {
         // Zero means no item is currently in that slot.
         let clothingPiece = new Sup.Actor(slot,this.actor);
         clothingPiece.setLocalPosition(0,0,.1);
-        new Sup.SpriteRenderer(clothingPiece,"SampleHero");
+        new Sup.SpriteRenderer(clothingPiece,"Graphics/SampleHero");
         clothingPiece.spriteRenderer.setAnimation("All");
         clothingPiece.spriteRenderer.setAnimationFrameTime(imageIndex);
         clothingPiece.spriteRenderer.pauseAnimation();

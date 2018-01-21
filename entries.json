@@ -1,40 +1,105 @@
 {
-  "nextEntryId": 7,
+  "nextEntryId": 18,
   "nodes": [
     {
-      "id": "0",
-      "name": "SampleHero",
-      "type": "sprite"
+      "id": "9",
+      "name": "Graphics",
+      "type": null,
+      "children": [
+        {
+          "id": "0",
+          "name": "SampleHero",
+          "type": "sprite"
+        },
+        {
+          "id": "12",
+          "name": "Tiles",
+          "type": "sprite"
+        },
+        {
+          "id": "15",
+          "name": "MapCreatorTiles",
+          "type": "tileSet"
+        }
+      ]
     },
     {
-      "id": "1",
-      "name": "Main",
-      "type": "scene"
+      "id": "16",
+      "name": "Levels",
+      "type": null,
+      "children": [
+        {
+          "id": "17",
+          "name": "Map1",
+          "type": "tileMap"
+        }
+      ]
     },
     {
-      "id": "6",
-      "name": "GlobalCode",
-      "type": "script"
+      "id": "8",
+      "name": "All",
+      "type": null,
+      "children": [
+        {
+          "id": "6",
+          "name": "GlobalCode",
+          "type": "script"
+        },
+        {
+          "id": "2",
+          "name": "Game",
+          "type": "script"
+        },
+        {
+          "id": "3",
+          "name": "HeroClothing",
+          "type": "script"
+        }
+      ]
     },
     {
-      "id": "2",
-      "name": "Game",
-      "type": "script"
+      "id": "7",
+      "name": "HomeScreen",
+      "type": null,
+      "children": [
+        {
+          "id": "1",
+          "name": "HomeScreenScene",
+          "type": "scene"
+        },
+        {
+          "id": "5",
+          "name": "Equipment",
+          "type": "script"
+        },
+        {
+          "id": "4",
+          "name": "HeroWander",
+          "type": "script"
+        }
+      ]
     },
     {
-      "id": "3",
-      "name": "HeroClothing",
-      "type": "script"
-    },
-    {
-      "id": "4",
-      "name": "HeroWander",
-      "type": "script"
-    },
-    {
-      "id": "5",
-      "name": "Equipment",
-      "type": "script"
+      "id": "11",
+      "name": "Dungeon",
+      "type": null,
+      "children": [
+        {
+          "id": "10",
+          "name": "DungeonScene",
+          "type": "scene"
+        },
+        {
+          "id": "13",
+          "name": "DungeonHero",
+          "type": "script"
+        },
+        {
+          "id": "14",
+          "name": "DungeonFloor",
+          "type": "script"
+        }
+      ]
     }
   ]
 }

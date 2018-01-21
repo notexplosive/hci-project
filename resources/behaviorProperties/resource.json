@@ -32,6 +32,18 @@
           "type": "number"
         }
       ]
+    },
+    "DungeonHeroBehavior": {
+      "scriptId": "13",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "DungeonFloorBehavior": {
+      "scriptId": "14",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

@@ -10,8 +10,9 @@ class GameBehavior extends Sup.Behavior {
   update() {
     let mp = getRealMousePosition();
     let tp = Sup.Input.getTouchPosition(0);
+    let LEVEL = "DUNGEON"
     
-    if(Sup.Input.wasMouseButtonJustPressed(0) || Sup.Input.wasTouchStarted(0)){
+    if(LEVEL == "HOME" && Sup.Input.wasMouseButtonJustPressed(0) || Sup.Input.wasTouchStarted(0)){
       if(!Sup.Input.wasMouseButtonJustPressed(0)){
         mp = tp;
       }
@@ -31,7 +32,7 @@ class GameBehavior extends Sup.Behavior {
       equipmentBehavior.slot = slotNames[r]
       equipmentBehavior.index = r;
       
-      new Sup.SpriteRenderer(item,"SampleHero");
+      new Sup.SpriteRenderer(item,"Graphics/SampleHero");
       item.spriteRenderer.setAnimation("All");
       item.spriteRenderer.setAnimationFrameTime(r);
       item.spriteRenderer.pauseAnimation();
