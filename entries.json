@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 20,
+  "nextEntryId": 21,
   "nodes": [
     {
       "id": "9",
@@ -53,6 +53,11 @@
         {
           "id": "6",
           "name": "GlobalCode",
+          "type": "script"
+        },
+        {
+          "id": "20",
+          "name": "AnimationObject",
           "type": "script"
         },
         {
