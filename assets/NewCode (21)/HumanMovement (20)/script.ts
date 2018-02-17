@@ -7,6 +7,7 @@ class HumanMovementBehavior extends Sup.Behavior {
     yVelocity:0,
     yPosition:0
   };
+  private nextTargetPosition:Sup.Math.Vector2 = null;
   
   awake() {
     this.spriteActor = new Sup.Actor("HumanSprite",this.actor);
@@ -16,8 +17,6 @@ class HumanMovementBehavior extends Sup.Behavior {
   }
 
   update() {
-
-    
     // ---------------------------------------- WAITFRAME BOUNDARY ------------------------------------
     // Wait out the waitframes
     if(this.waitframes > 0){
@@ -27,6 +26,11 @@ class HumanMovementBehavior extends Sup.Behavior {
     
     // Handle sprite graphic
     this.spriteActorVars.yPosition += this.spriteActorVars.yVelocity;
+    this.actor.spriteRenderer.setColor(1,1,1);
+    if(this.spriteActorVars.yPosition < 0){
+      this.spriteActorVars.yPosition = 0;
+      this.actor.spriteRenderer.setColor(2,2,2);
+    }
     this.spriteActorVars.yVelocity -= .03;
     if(this.spriteActorVars.yPosition < 0){
       this.spriteActorVars.yPosition = 0;
@@ -53,15 +57,33 @@ class HumanMovementBehavior extends Sup.Behavior {
         }
       }
     }else{
-      // Note! we need to only allow new movement commands if yPosition is at zero, like so
-      if(this.spriteActorVars.yPosition == 0){
-        this.setTargetPosition(new Sup.Math.Vector2(Math.random()-.5,Math.random()-.5).multiplyScalar(5));
-        this.wait(5);
+      let longTermDisplacement = this.longTermTargetPosition.clone().subtract(this.actor.getPosition().toVector2());
+      if(longTermDisplacement.length() > 0.000001){
+        if(this.spriteActorVars.yPosition == 0){
+          this.setTargetPosition(this.longTermTargetPosition);
+        }
       }
     }
+    
+    // Bug: accumulates taller and taller heights
+    
+    if(this.nextTargetPosition){
+      this.setTargetPosition(this.nextTargetPosition);
+      this.nextTargetPosition = null;
+      // this.setTargetPosition(this.nextTargetPosition);
+      this.wait(5);
+    }
+    
+    Sup.log(this.longTermTargetPosition);
   }
   
-  setTargetPosition(target:Sup.Math.Vector2){
+  // Public facing method for movement
+  moveTowards(targetPosition:Sup.Math.Vector2){
+    this.nextTargetPosition = targetPosition;
+  }
+  
+  // Internal method for movement
+  private setTargetPosition(target:Sup.Math.Vector2){
     let displacement = target.clone().subtract(this.actor.getPosition().toVector2());
     this.targetPosition = target;
     this.longTermTargetPosition = target;
@@ -83,7 +105,5 @@ Sup.registerBehavior(HumanMovementBehavior);
 
 
 // Test HumanMovement
-for(let i = 0; i < 10; i++){
-  new Sup.Actor("Human").addBehavior(HumanMovementBehavior);
-}
+new Sup.Actor("Player").addBehavior(HumanMovementBehavior);
 new Sup.Actor("Game").addBehavior(GameBehavior);
