@@ -44,6 +44,12 @@
       "line": 0,
       "parentBehavior": null,
       "properties": []
+    },
+    "HumanMovementBehavior": {
+      "scriptId": "20",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }
