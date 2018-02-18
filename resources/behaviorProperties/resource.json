@@ -41,12 +41,36 @@
     },
     "DungeonFloorBehavior": {
       "scriptId": "14",
-      "line": 0,
+      "line": 35,
       "parentBehavior": null,
       "properties": []
     },
     "HumanMovementBehavior": {
-      "scriptId": "20",
+      "scriptId": "24",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "EnemyBehavior": {
+      "scriptId": "26",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ZOrderBehavior": {
+      "scriptId": "29",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "HumanBehavior": {
+      "scriptId": "30",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "StatBehavior": {
+      "scriptId": "31",
       "line": 0,
       "parentBehavior": null,
       "properties": []

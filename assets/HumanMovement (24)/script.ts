@@ -11,12 +11,20 @@ class HumanMovementBehavior extends Sup.Behavior {
   
   awake() {
     this.spriteActor = new Sup.Actor("HumanSprite",this.actor);
+    this.spriteActor.addBehavior(ZOrderBehavior).getPosFrom = this.actor;
     new Sup.SpriteRenderer(this.spriteActor,"Graphics/Hero");
     this.spriteActor.setLocalScale(2,2,1);
-    new Sup.SpriteRenderer(this.actor,'Graphics/Shadow');
+    
+    // This is weird. I would never advise doing this normally.
+    this.actor.spriteRenderer = this.spriteActor.spriteRenderer;
+    
+    this.actor.addBehavior(StatBehavior);
   }
 
   update() {
+    // TODO: We can handle collision by disallowing certain target positions? Re-clamping them to the nearest allowed location?
+    // This would have to apply to even intermediary target positions, not just long term.
+    
     // ---------------------------------------- WAITFRAME BOUNDARY ------------------------------------
     // Wait out the waitframes
     if(this.waitframes > 0){
@@ -26,22 +34,22 @@ class HumanMovementBehavior extends Sup.Behavior {
     
     // Handle sprite graphic
     this.spriteActorVars.yPosition += this.spriteActorVars.yVelocity;
-    this.actor.spriteRenderer.setColor(1,1,1);
     if(this.spriteActorVars.yPosition < 0){
       this.spriteActorVars.yPosition = 0;
-      this.actor.spriteRenderer.setColor(2,2,2);
     }
-    this.spriteActorVars.yVelocity -= .03;
+    this.spriteActorVars.yVelocity -= .05;
     if(this.spriteActorVars.yPosition < 0){
       this.spriteActorVars.yPosition = 0;
       this.spriteActorVars.yVelocity = 0;
       this.spriteActor.setEulerZ(0);
     }
     
-    // Applies the yPosition field and deals with ZOrdering
-    let foreground = -this.actor.getPosition().y*.01;
-    this.spriteActor.setLocalPosition(0,this.spriteActorVars.yPosition*.1 + 1,foreground );
-    this.spriteActor.setLocalScale(2 + foreground,2 + foreground,1)
+    if(this.spriteActorVars.yPosition == 0){
+      this.spriteActor.setEulerZ(0);
+    }
+    
+    // Applies yPosition
+    this.spriteActor.setLocalPosition(0,this.spriteActorVars.yPosition*.1 + 1 );
     
     // Interpolate towards position
     let displacement = this.targetPosition.clone().subtract(this.actor.getPosition().toVector2());
@@ -67,14 +75,12 @@ class HumanMovementBehavior extends Sup.Behavior {
     
     // Bug: accumulates taller and taller heights
     
-    if(this.nextTargetPosition){
+    if(this.nextTargetPosition && this.spriteActorVars.yPosition == 0){
       this.setTargetPosition(this.nextTargetPosition);
       this.nextTargetPosition = null;
       // this.setTargetPosition(this.nextTargetPosition);
       this.wait(5);
     }
-    
-    Sup.log(this.longTermTargetPosition);
   }
   
   // Public facing method for movement
@@ -101,9 +107,3 @@ class HumanMovementBehavior extends Sup.Behavior {
   }
 }
 Sup.registerBehavior(HumanMovementBehavior);
-
-
-
-// Test HumanMovement
-new Sup.Actor("Player").addBehavior(HumanMovementBehavior);
-new Sup.Actor("Game").addBehavior(GameBehavior);

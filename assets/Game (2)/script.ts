@@ -16,8 +16,13 @@ class GameBehavior extends Sup.Behavior {
         mp = tp;
       }
       
-      Sup.getActor("Player").getBehavior(HumanMovementBehavior).moveTowards(new Sup.Math.Vector2(mp.x,mp.y));
-      
+      Sup.getActor("Human").getBehavior(HumanMovementBehavior).moveTowards(new Sup.Math.Vector2(mp.x,mp.y));
+    }
+    
+    if(Sup.Input.wasKeyJustPressed('J')){
+      let enemy = new Sup.Actor("Enemy");
+      enemy.setPosition(8,0,0)
+      enemy.addBehavior(EnemyBehavior);
     }
   }
 }
