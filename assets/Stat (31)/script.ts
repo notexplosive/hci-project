@@ -46,9 +46,10 @@ class StatBehavior extends Sup.Behavior {
     }
     
     if(this.alive){
-      this.actor.setVisible(true);
+      //this.actor.setVisible(true);
     }else{
-      this.actor.setVisible(false);
+      //this.actor.setVisible(false);
+      this.actor.getBehavior(HumanMovementBehavior).die()
     }
   }
   

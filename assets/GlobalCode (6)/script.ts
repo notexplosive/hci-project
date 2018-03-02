@@ -1,11 +1,22 @@
 // GLOBAL VARIABLES GO HERE //
+
 // Human Actor. Initialized in awake() phase. Any time after awake() this is a reliable shortcut to the human actor.
 let HUMAN:Sup.Actor;
+
+// Map Behavior, we don't care so much about the actor so we just grab the behavior instance.
+// Just like HUMAN this is defined in the maps awake() function.
+let MAP:MapBehavior;
+
 // List of all enemy actors. A given enemy will be replaced with 'null' if it's no longer present.
+// This list should clear every time we transition rooms.
 let ENEMIES:Sup.Actor[] = [];
+
 // Some constants
 const MELEE_RANGE = 1;
 // todo: add sprite_gravity and a few other sprite related things.
+
+// Tells the background elements (like trees) that they should start scrolling to the left.
+let SCROLL_MODE = false;
 
 // I find myself doing this a lot, let's optimize!
 function getDisplacement(vec1:Sup.Math.Vector2,vec2:Sup.Math.Vector2):Sup.Math.Vector2{

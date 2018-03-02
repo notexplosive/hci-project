@@ -1,10 +1,6 @@
 class GameBehavior extends Sup.Behavior {
   awake() {
-    let cameraActor = new Sup.Actor("Camera");
-    cameraActor.setPosition(0,0,5);
-    let cameraComponent = new Sup.Camera(cameraActor);
-    cameraComponent.setOrthographicMode(true);
-    cameraComponent.setOrthographicScale(8);
+    
   }
   
   update() {
@@ -16,7 +12,31 @@ class GameBehavior extends Sup.Behavior {
         mp = tp;
       }
       
-      Sup.getActor("Human").getBehavior(HumanMovementBehavior).moveTowards(new Sup.Math.Vector2(mp.x,mp.y));
+      if(!SCROLL_MODE){
+        Sup.getActor("Human").getBehavior(HumanMovementBehavior).moveTowards(new Sup.Math.Vector2(mp.x,mp.y));
+      }
+    }
+    
+    if(MAP.choseNewTile()){
+      this.travelTimer = 120;
+      SCROLL_MODE = true;
+    }else if(this.allEnemiesCleared() && !SCROLL_MODE && this.travelTimer == 0){
+      MAP.promptForNextMove();
+    }
+    
+    if(this.travelTimer > 0){
+      this.travelTimer--;
+      Sup.log(this.travelTimer);
+    }else{
+      SCROLL_MODE = false;
+      // Spawn enemies
+    }
+    
+    //
+    // Fun debugging hotkeys
+    //
+    if(Sup.Input.wasKeyJustPressed('K')){
+      SCROLL_MODE = !SCROLL_MODE;
     }
     
     if(Sup.Input.wasKeyJustPressed('J')){
@@ -25,5 +45,11 @@ class GameBehavior extends Sup.Behavior {
       enemy.addBehavior(EnemyBehavior);
     }
   }
+  
+  allEnemiesCleared(){
+    return true;
+  }
+  
+  private travelTimer = 0;
 }
 Sup.registerBehavior(GameBehavior);

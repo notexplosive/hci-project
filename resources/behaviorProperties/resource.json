@@ -74,6 +74,36 @@
       "line": 0,
       "parentBehavior": null,
       "properties": []
+    },
+    "SpriteActorComponentBehavior": {
+      "scriptId": "34",
+      "line": 5,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "MapBehavior": {
+      "scriptId": "36",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "MapTileBehavior": {
+      "scriptId": "38",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ScrollObjectBehavior": {
+      "scriptId": "33",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "GenerateForestBehavior": {
+      "scriptId": "40",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

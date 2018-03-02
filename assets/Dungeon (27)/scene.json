@@ -16,8 +16,8 @@
         }
       ],
       "position": {
-        "x": 0,
-        "y": 0,
+        "x": -2.0126450061798096,
+        "y": -0.14752371609210968,
         "z": 0
       },
       "orientation": {
@@ -50,8 +50,8 @@
         }
       ],
       "position": {
-        "x": -4.560688175641838,
-        "y": 2.173913043478261,
+        "x": 0,
+        "y": 0,
         "z": 0
       },
       "orientation": {
@@ -70,22 +70,147 @@
       "prefab": null
     },
     {
-      "id": "2",
-      "name": "Enemy",
+      "id": "14",
+      "name": "Camera",
       "children": [],
+      "components": [
+        {
+          "type": "Camera",
+          "config": {
+            "formatVersion": 1,
+            "mode": "orthographic",
+            "fov": 45,
+            "orthographicScale": 8,
+            "viewport": {
+              "x": 0,
+              "y": 0,
+              "width": 1,
+              "height": 1
+            },
+            "depth": 0,
+            "nearClippingPlane": 0.1,
+            "farClippingPlane": 1000
+          },
+          "id": "1"
+        }
+      ],
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "12",
+      "name": "Map",
+      "children": [
+        {
+          "id": "13",
+          "name": "mapCamera",
+          "children": [],
+          "components": [
+            {
+              "type": "Camera",
+              "config": {
+                "formatVersion": 1,
+                "mode": "orthographic",
+                "fov": 45,
+                "orthographicScale": 5,
+                "viewport": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0.15,
+                  "height": 0.15
+                },
+                "depth": 0,
+                "nearClippingPlane": 0.1,
+                "farClippingPlane": 1000
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 1
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        }
+      ],
       "components": [
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "EnemyBehavior",
+            "behaviorName": "MapBehavior",
             "propertyValues": {}
           },
           "id": "0"
         }
       ],
       "position": {
-        "x": 3.056353807449341,
-        "y": 0.6975305676460266,
+        "x": 1.5576320886611938,
+        "y": -9.318867683410645,
+        "z": 0
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "18",
+      "name": "GenerateForest",
+      "children": [],
+      "components": [
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "GenerateForestBehavior",
+            "propertyValues": {}
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": 0,
+        "y": 0,
         "z": 0
       },
       "orientation": {

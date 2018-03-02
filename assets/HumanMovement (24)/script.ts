@@ -8,14 +8,17 @@ class HumanMovementBehavior extends Sup.Behavior {
     yPosition:0
   };
   private nextTargetPosition:Sup.Math.Vector2 = null;
+  private dead = false;
+  private angle = 0;
   
   awake() {
     this.spriteActor = new Sup.Actor("HumanSprite",this.actor);
     this.spriteActor.addBehavior(ZOrderBehavior).getPosFrom = this.actor;
-    new Sup.SpriteRenderer(this.spriteActor,"Graphics/Hero");
+    new Sup.SpriteRenderer(this.spriteActor,"Graphics/Paige");
     this.spriteActor.setLocalScale(2,2,1);
     
     // This is weird. I would never advise doing this normally.
+    // Ordinarily spriteRenderer gets defined when you call `new SpriteRenderer(this.actor)`
     this.actor.spriteRenderer = this.spriteActor.spriteRenderer;
     
     this.actor.addBehavior(StatBehavior);
@@ -25,8 +28,20 @@ class HumanMovementBehavior extends Sup.Behavior {
     // TODO: We can handle collision by disallowing certain target positions? Re-clamping them to the nearest allowed location?
     // This would have to apply to even intermediary target positions, not just long term.
     
+    if(this.dead){
+      if(this.angle >= -Math.PI/2){
+        this.angle -= Math.PI/30;
+      }
+      this.actor.setEulerZ(this.angle);
+      
+      return;
+    }
+    // ---------------------------------------- DEAD BOUNDARY ----------------------------------------
+    // Nothing past this line will be executed if dead = true
+    
     // ---------------------------------------- WAITFRAME BOUNDARY ------------------------------------
-    // Wait out the waitframes
+    // Wait out the waitframes nothing past this line will be executed if we have enqued any waitframes
+    
     if(this.waitframes > 0){
       this.waitframes--;
       return;
@@ -54,6 +69,9 @@ class HumanMovementBehavior extends Sup.Behavior {
     // Interpolate towards position
     let displacement = this.targetPosition.clone().subtract(this.actor.getPosition().toVector2());
     if(displacement.length() > 0.000001){
+      if(!SCROLL_MODE){
+        this.actor.spriteRenderer.setHorizontalFlip(displacement.x > 0);
+      }
       let distancePerFrame = .04;
       if(displacement.length() > distancePerFrame){
         this.actor.move(displacement.normalize().multiplyScalar(distancePerFrame));
@@ -88,6 +106,10 @@ class HumanMovementBehavior extends Sup.Behavior {
     this.nextTargetPosition = targetPosition;
   }
   
+  isMoving(){
+    return this.spriteActorVars.yPosition > 0
+  }
+  
   // Internal method for movement
   private setTargetPosition(target:Sup.Math.Vector2){
     let displacement = target.clone().subtract(this.actor.getPosition().toVector2());
@@ -99,11 +121,14 @@ class HumanMovementBehavior extends Sup.Behavior {
     }else{
       this.spriteActorVars.yVelocity = .5 * displacement.length();
     }
-    this.spriteActor.setEulerZ((Math.random()-.5) * Math.PI / 10);
   }
   
   wait(n:number){
     this.waitframes += n;
+  }
+  
+  die(){
+    this.dead = true;
   }
 }
 Sup.registerBehavior(HumanMovementBehavior);
