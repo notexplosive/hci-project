@@ -73,7 +73,12 @@
       "scriptId": "31",
       "line": 0,
       "parentBehavior": null,
-      "properties": []
+      "properties": [
+        {
+          "name": "templateName",
+          "type": "string"
+        }
+      ]
     },
     "SpriteActorComponentBehavior": {
       "scriptId": "34",
@@ -101,6 +106,44 @@
     },
     "GenerateForestBehavior": {
       "scriptId": "40",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "TimeIndicatorBehavior": {
+      "scriptId": "43",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "rotationDirection",
+          "type": "number"
+        },
+        {
+          "name": "currentRotZ",
+          "type": "number"
+        }
+      ]
+    },
+    "InventoryBehavior": {
+      "scriptId": "45",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "HomePanInBehavior": {
+      "scriptId": "57",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "offset",
+          "type": "Sup.Math.Vector2"
+        }
+      ]
+    },
+    "CursorBehavior": {
+      "scriptId": "59",
       "line": 0,
       "parentBehavior": null,
       "properties": []

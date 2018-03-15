@@ -40,6 +40,7 @@ class EnemyBehavior extends Sup.Behavior {
       if(this.deadTimer > 0){
         this.deadTimer--;
       }else{
+        SpawnItem(this.templateName);
         removeEnemy(this.actor);
         this.actor.destroy();
       }

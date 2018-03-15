@@ -5,14 +5,14 @@
   ],
   "filtering": "pixelated",
   "wrapping": "clampToEdge",
-  "pixelsPerUnit": 3,
+  "pixelsPerUnit": 32,
   "framesPerSecond": 10,
   "opacity": null,
   "alphaTest": 0.1,
   "frameOrder": "rows",
   "grid": {
     "width": 16,
-    "height": 16
+    "height": 32
   },
   "origin": {
     "x": 0.5,
@@ -21,9 +21,9 @@
   "animations": [
     {
       "id": "0",
-      "name": "All",
+      "name": "Fill",
       "startFrameIndex": 0,
-      "endFrameIndex": 255,
+      "endFrameIndex": 26,
       "speed": 1
     }
   ],

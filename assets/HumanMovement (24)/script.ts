@@ -10,18 +10,21 @@ class HumanMovementBehavior extends Sup.Behavior {
   private nextTargetPosition:Sup.Math.Vector2 = null;
   private dead = false;
   private angle = 0;
+  private no_walk_zone_y = 0;
   
   awake() {
     this.spriteActor = new Sup.Actor("HumanSprite",this.actor);
     this.spriteActor.addBehavior(ZOrderBehavior).getPosFrom = this.actor;
-    new Sup.SpriteRenderer(this.spriteActor,"Graphics/Paige");
-    this.spriteActor.setLocalScale(2,2,1);
+    new Sup.SpriteRenderer(this.spriteActor,"Graphics/Human").setAnimation("All");
     
     // This is weird. I would never advise doing this normally.
     // Ordinarily spriteRenderer gets defined when you call `new SpriteRenderer(this.actor)`
     this.actor.spriteRenderer = this.spriteActor.spriteRenderer;
+    this.actor.spriteRenderer.pauseAnimation();
     
     this.actor.addBehavior(StatBehavior);
+    
+    this.moveTowards(this.actor.getPosition().toVector2());
   }
 
   update() {
@@ -36,8 +39,13 @@ class HumanMovementBehavior extends Sup.Behavior {
       
       return;
     }
+    
+    if(this.actor.getPosition().y > this.no_walk_zone_y){
+      this.actor.moveY(-.1);
+    }
+    
     // ---------------------------------------- DEAD BOUNDARY ----------------------------------------
-    // Nothing past this line will be executed if dead = true
+    // Nothing past this line will be executed if dead == true
     
     // ---------------------------------------- WAITFRAME BOUNDARY ------------------------------------
     // Wait out the waitframes nothing past this line will be executed if we have enqued any waitframes
@@ -112,6 +120,9 @@ class HumanMovementBehavior extends Sup.Behavior {
   
   // Internal method for movement
   private setTargetPosition(target:Sup.Math.Vector2){
+    if(target.y > this.no_walk_zone_y){
+      target.y = this.no_walk_zone_y;
+    }
     let displacement = target.clone().subtract(this.actor.getPosition().toVector2());
     this.targetPosition = target;
     this.longTermTargetPosition = target;
@@ -128,7 +139,14 @@ class HumanMovementBehavior extends Sup.Behavior {
   }
   
   die(){
+    if(!this.dead){
+      this.actor.addBehavior(ScrollObjectBehavior);
+    }
     this.dead = true;
+  }
+  
+  jump(n:number){
+    this.spriteActorVars.yVelocity = n;
   }
 }
 Sup.registerBehavior(HumanMovementBehavior);

@@ -18,6 +18,14 @@ const MELEE_RANGE = 1;
 // Tells the background elements (like trees) that they should start scrolling to the left.
 let SCROLL_MODE = false;
 
+let HumanNames = ["Paige","Henry","Liza","Jake","Ellie","David","Cora","Finn"];
+let HUMAN_CHOICE = Math.floor(Math.random()*HumanNames.length);
+
+// Inventory opened or closed flag
+let INVENTORY_OPEN = false;
+// Global itemlist used for the inventory
+let ITEM_LIST:{itemName:string,quantity:number}[] = [];
+
 // I find myself doing this a lot, let's optimize!
 function getDisplacement(vec1:Sup.Math.Vector2,vec2:Sup.Math.Vector2):Sup.Math.Vector2{
   return vec1.clone().subtract(vec2);
@@ -26,6 +34,24 @@ function getDisplacement(vec1:Sup.Math.Vector2,vec2:Sup.Math.Vector2):Sup.Math.V
 function getDistance(vec1:Sup.Math.Vector2,vec2:Sup.Math.Vector2):number{
   return(getDisplacement(vec1,vec2).length())
 }
+
+// Remove from ENEMIES
+function removeEnemy(actor:Sup.Actor){
+    let length = ENEMIES.length;
+    let deletedAttacker = false;
+    for(let i = 0; i < length; i++){
+      if(ENEMIES[i] == actor){
+        ENEMIES[i] = null;
+        deletedAttacker = true;
+      }
+      if(deletedAttacker){
+        ENEMIES[i] = ENEMIES[i+1];
+      }
+    }
+    if(ENEMIES[ENEMIES.length] == undefined){
+      ENEMIES.pop();
+    }
+  }
 
 // This function returns the mouse position as it is presented on screen.
 // 

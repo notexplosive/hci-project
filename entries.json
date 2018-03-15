@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 42,
+  "nextEntryId": 65,
   "nodes": [
     {
       "id": "9",
@@ -7,13 +7,61 @@
       "type": null,
       "children": [
         {
-          "id": "0",
-          "name": "SampleHero",
-          "type": "sprite"
+          "id": "48",
+          "name": "House",
+          "type": null,
+          "children": [
+            {
+              "id": "49",
+              "name": "Background",
+              "type": "sprite"
+            },
+            {
+              "id": "51",
+              "name": "Foreground",
+              "type": "sprite"
+            },
+            {
+              "id": "52",
+              "name": "Chest",
+              "type": "sprite"
+            },
+            {
+              "id": "53",
+              "name": "Couch",
+              "type": "sprite"
+            },
+            {
+              "id": "54",
+              "name": "Portrait",
+              "type": "sprite"
+            },
+            {
+              "id": "55",
+              "name": "Rug",
+              "type": "sprite"
+            },
+            {
+              "id": "56",
+              "name": "Vase",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "64",
+          "name": "Items",
+          "type": null,
+          "children": []
         },
         {
           "id": "12",
           "name": "Tiles",
+          "type": "sprite"
+        },
+        {
+          "id": "46",
+          "name": "Items_old",
           "type": "sprite"
         },
         {
@@ -27,24 +75,66 @@
           "type": "sprite"
         },
         {
-          "id": "18",
-          "name": "Hero",
-          "type": "sprite"
-        },
-        {
           "id": "37",
           "name": "MapTiles",
           "type": "sprite"
         },
         {
           "id": "39",
-          "name": "Paige",
+          "name": "Human",
           "type": "sprite"
         },
         {
-          "id": "15",
-          "name": "MapCreatorTiles",
-          "type": "tileSet"
+          "id": "42",
+          "name": "Timebar",
+          "type": "sprite"
+        },
+        {
+          "id": "47",
+          "name": "Background",
+          "type": "sprite"
+        },
+        {
+          "id": "58",
+          "name": "Cursor",
+          "type": "sprite"
+        },
+        {
+          "id": "60",
+          "name": "Skeleton",
+          "type": "sprite"
+        },
+        {
+          "id": "62",
+          "name": "Blue Slime",
+          "type": "sprite"
+        },
+        {
+          "id": "63",
+          "name": "Green Slime",
+          "type": "sprite"
+        },
+        {
+          "id": "61",
+          "name": "Old",
+          "type": null,
+          "children": [
+            {
+              "id": "18",
+              "name": "Hero",
+              "type": "sprite"
+            },
+            {
+              "id": "0",
+              "name": "SampleHero",
+              "type": "sprite"
+            },
+            {
+              "id": "15",
+              "name": "MapCreatorTiles",
+              "type": "tileSet"
+            }
+          ]
         }
       ]
     },
@@ -78,6 +168,11 @@
     {
       "id": "41",
       "name": "Strings",
+      "type": "script"
+    },
+    {
+      "id": "44",
+      "name": "Templates",
       "type": "script"
     },
     {
@@ -184,6 +279,11 @@
       "type": "script"
     },
     {
+      "id": "43",
+      "name": "TimeIndicator",
+      "type": "script"
+    },
+    {
       "id": "33",
       "name": "ScrollObject",
       "type": "script"
@@ -204,8 +304,28 @@
       "type": "script"
     },
     {
+      "id": "45",
+      "name": "Inventory",
+      "type": "script"
+    },
+    {
+      "id": "59",
+      "name": "Cursor",
+      "type": "script"
+    },
+    {
+      "id": "57",
+      "name": "HomePanIn",
+      "type": "script"
+    },
+    {
       "id": "27",
       "name": "Dungeon",
+      "type": "scene"
+    },
+    {
+      "id": "50",
+      "name": "Home",
       "type": "scene"
     },
     {

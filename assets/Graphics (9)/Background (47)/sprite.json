@@ -3,16 +3,16 @@
   "maps": [
     "map"
   ],
-  "filtering": "smooth",
+  "filtering": "pixelated",
   "wrapping": "clampToEdge",
-  "pixelsPerUnit": 1024,
+  "pixelsPerUnit": 128,
   "framesPerSecond": 10,
-  "opacity": 1,
+  "opacity": null,
   "alphaTest": 0.1,
   "frameOrder": "rows",
   "grid": {
-    "width": 1024,
-    "height": 1366
+    "width": 1920,
+    "height": 1080
   },
   "origin": {
     "x": 0.5,
