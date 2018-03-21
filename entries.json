@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 65,
+  "nextEntryId": 71,
   "nodes": [
     {
       "id": "9",
@@ -49,19 +49,13 @@
           ]
         },
         {
-          "id": "64",
-          "name": "Items",
-          "type": null,
-          "children": []
-        },
-        {
           "id": "12",
           "name": "Tiles",
           "type": "sprite"
         },
         {
           "id": "46",
-          "name": "Items_old",
+          "name": "Items",
           "type": "sprite"
         },
         {
@@ -135,6 +129,16 @@
               "type": "tileSet"
             }
           ]
+        },
+        {
+          "id": "67",
+          "name": "White",
+          "type": "sprite"
+        },
+        {
+          "id": "69",
+          "name": "White2",
+          "type": "sprite"
         }
       ]
     },
@@ -314,9 +318,29 @@
       "type": "script"
     },
     {
+      "id": "65",
+      "name": "Loot",
+      "type": "script"
+    },
+    {
+      "id": "68",
+      "name": "ChooseYourHumanScript",
+      "type": "script"
+    },
+    {
       "id": "57",
       "name": "HomePanIn",
       "type": "script"
+    },
+    {
+      "id": "70",
+      "name": "Home",
+      "type": "script"
+    },
+    {
+      "id": "66",
+      "name": "ChooseYourHuman",
+      "type": "scene"
     },
     {
       "id": "27",
@@ -325,7 +349,7 @@
     },
     {
       "id": "50",
-      "name": "Home",
+      "name": "HomeScene",
       "type": "scene"
     },
     {

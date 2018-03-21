@@ -137,7 +137,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "z": 1
+            "z": 0.5
           },
           "orientation": {
             "x": 0,
@@ -197,7 +197,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "z": 1
+            "z": 0.5
           },
           "orientation": {
             "x": 0,
@@ -257,7 +257,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "z": 1.1
+            "z": 0.6
           },
           "orientation": {
             "x": 0,
@@ -317,7 +317,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "z": 1.4
+            "z": 0.5
           },
           "orientation": {
             "x": 0,
@@ -418,7 +418,109 @@
       "position": {
         "x": 0,
         "y": 0,
+        "z": -1
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "8",
+      "name": "Home",
+      "children": [],
+      "components": [
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "HomeBehavior",
+            "propertyValues": {}
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": -8.711691856384277,
+        "y": -0.1986379474401474,
+        "z": 5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "9",
+      "name": "Human",
+      "children": [],
+      "components": [
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "HumanBehavior",
+            "propertyValues": {}
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": -4.546,
+        "y": -0.227,
         "z": 0
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "10",
+      "name": "Cursor",
+      "children": [],
+      "components": [
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "CursorBehavior",
+            "propertyValues": {}
+          },
+          "id": "0"
+        }
+      ],
+      "position": {
+        "x": -8.921679496765137,
+        "y": -2.3552780151367188,
+        "z": 5
       },
       "orientation": {
         "x": 0,

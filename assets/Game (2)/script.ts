@@ -1,6 +1,6 @@
 class GameBehavior extends Sup.Behavior {
   awake() {
-    
+    HOME_MODE = false;
   }
   
   update() {

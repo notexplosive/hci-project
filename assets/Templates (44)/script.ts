@@ -2,11 +2,13 @@ class EnemyTemplate{
   vigor:number;
   speed:number;
   grit:number;
+  lootTable:string[];
   
-  constructor(vigor,grit,speed){
+  constructor(vigor:number,grit:number,speed:number,lootTable:string[]){
     this.vigor = vigor;
     this.speed = speed;
     this.grit = grit;
+    this.lootTable = lootTable;
   }
 }
 
@@ -31,6 +33,7 @@ class ItemTemplate{
 }
 
 function AddItemToInventory(templateName:string){
+  Sup.log(templateName)
   let template = ItemTemplates[templateName];
   let alreadyHasItem = false;
   for(let item of ITEM_LIST){
@@ -79,21 +82,27 @@ function UseItem(itemName,target:Sup.Actor){
 }
 
 let EnemyTemplates = {}
-EnemyTemplates['Skeleton'] = new EnemyTemplate(6,8,1);
-EnemyTemplates['Green Slime'] = new EnemyTemplate(3,3,2);
-EnemyTemplates['Blue Slime'] = new EnemyTemplate(6,6,2);
+EnemyTemplates['Skeleton'] = new EnemyTemplate(6,8,1,["Bone","Health Potion","Revive Tonic"]);
+EnemyTemplates['Green Slime'] = new EnemyTemplate(3,3,2,["Green Slime Ball"]);
+EnemyTemplates['Blue Slime'] = new EnemyTemplate(6,6,2,["Blue Slime Ball"]);
 
 let ItemTemplates = {}
-new ItemTemplate("Healing Potion",0,function(target:Sup.Actor){
+new ItemTemplate("Healing Potion",1,function(target:Sup.Actor){
   target.getBehavior(StatBehavior).heal(60);
 });
-new ItemTemplate("Revive Tonic",1,function(target:Sup.Actor){
+new ItemTemplate("Revive Tonic",0,function(target:Sup.Actor){
   target.getBehavior(StatBehavior).revive();
 });
-new ItemTemplate("Slime Ball",2,function(target:Sup.Actor){
+new ItemTemplate("Blue Slime Ball",3,function(target:Sup.Actor){
+  
+});
+new ItemTemplate("Green Slime Ball",4,function(target:Sup.Actor){
+  
+});
+new ItemTemplate("Bone",2,function(target:Sup.Actor){
   
 });
 
 AddItemToInventory("Healing Potion");
 AddItemToInventory("Healing Potion");
-AddItemToInventory("Slime Ball");
+AddItemToInventory("Green Slime Ball");

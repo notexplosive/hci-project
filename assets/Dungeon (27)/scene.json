@@ -315,7 +315,7 @@
                 "alignment": "center",
                 "verticalAlignment": "center",
                 "size": 32,
-                "color": null,
+                "color": "000000",
                 "overrideOpacity": true,
                 "opacity": 1
               },
@@ -324,7 +324,48 @@
           ],
           "position": {
             "x": 0,
-            "y": 2.4569760421290994,
+            "y": 2.6,
+            "z": 0.1
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        },
+        {
+          "id": "27",
+          "name": "InventoryTooltip",
+          "children": [],
+          "components": [
+            {
+              "type": "TextRenderer",
+              "config": {
+                "formatVersion": 2,
+                "fontAssetId": "32",
+                "text": "itemName",
+                "alignment": "center",
+                "verticalAlignment": "center",
+                "size": 32,
+                "color": "000000",
+                "overrideOpacity": true,
+                "opacity": 1
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": 0,
+            "y": -2.7814982067793608,
             "z": 0.09999990463256836
           },
           "orientation": {
@@ -348,7 +389,7 @@
           "type": "SpriteRenderer",
           "config": {
             "formatVersion": 1,
-            "spriteAssetId": "12",
+            "spriteAssetId": "69",
             "animationId": null,
             "horizontalFlip": false,
             "verticalFlip": false,
@@ -372,8 +413,8 @@
         }
       ],
       "position": {
-        "x": 4,
-        "y": 0.015,
+        "x": 3.6827471256256104,
+        "y": -0.02553914673626423,
         "z": 4.5
       },
       "orientation": {

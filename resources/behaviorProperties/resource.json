@@ -147,6 +147,29 @@
       "line": 0,
       "parentBehavior": null,
       "properties": []
+    },
+    "LootBehavior": {
+      "scriptId": "65",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "itemName",
+          "type": "string"
+        }
+      ]
+    },
+    "ChooseYourHumanBehavior": {
+      "scriptId": "68",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "HomeBehavior": {
+      "scriptId": "70",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

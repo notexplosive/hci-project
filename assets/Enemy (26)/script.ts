@@ -40,6 +40,7 @@ class EnemyBehavior extends Sup.Behavior {
       if(this.deadTimer > 0){
         this.deadTimer--;
       }else{
+        this.spawnItem();
         removeEnemy(this.actor);
         this.actor.destroy();
       }
@@ -55,6 +56,19 @@ class EnemyBehavior extends Sup.Behavior {
         
         this.aggro = distance < 6;
       }
+    }
+  }
+  
+  spawnItem(){
+    let numberOfDrops = Math.floor(Math.random()*3);
+    for(let i = 0; i < numberOfDrops; i++){
+      let lootTable = EnemyTemplates[this.stat.templateName].lootTable;
+      let lootName = lootTable[Math.floor(lootTable.length * Math.random())];
+      let act = new Sup.Actor("Dropped"+lootName);
+      act.setPosition(this.actor.getPosition());
+      act.move(Math.random()-0.5,Math.random()-0.5);
+      let behavior = act.addBehavior(LootBehavior);
+      behavior.itemName = lootName;
     }
   }
   

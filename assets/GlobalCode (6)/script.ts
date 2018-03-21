@@ -11,6 +11,10 @@ let MAP:MapBehavior;
 // This list should clear every time we transition rooms.
 let ENEMIES:Sup.Actor[] = [];
 
+// Set to true when at home, false when in a dungeon
+// This changes the behavior of the human
+let HOME_MODE = false;
+
 // Some constants
 const MELEE_RANGE = 1;
 // todo: add sprite_gravity and a few other sprite related things.
